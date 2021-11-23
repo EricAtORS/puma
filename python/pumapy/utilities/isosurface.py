@@ -1,7 +1,6 @@
 import numpy as np
 from skimage import measure
 import scipy.ndimage as ndimage
-import pyvista as pv
 from pumapy.utilities.workspace import Workspace
 from pumapy.utilities.generic_checks import check_ws_cutoff
 
@@ -46,6 +45,7 @@ class TriMesh:
         self.values = np.copy(other.values)
 
     def create_mesh(self):
+        import pyvista as pv
         f = np.zeros((self.faces.shape[0], 4), dtype=np.uint32)
         f[:, 0] = 3
         f[:, 1:] = self.faces
